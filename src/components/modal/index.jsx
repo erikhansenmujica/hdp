@@ -21,7 +21,8 @@ const useStyles = makeStyles(theme => ({
     color: "white",
     backgroundColor: "translucent",
     border: "2px solid white",
-    outline: "none"
+    outline: "none",
+    zIndex: 1001
   }
 }));
 

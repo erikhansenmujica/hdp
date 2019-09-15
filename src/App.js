@@ -11,6 +11,7 @@ import { Route, BrowserRouter, Redirect } from "react-router-dom";
 import UserLogged from "./components/userLogged";
 import Loader from "./components/Loader";
 import ImageUploader from "./pages/imageUploader";
+import Condiciones from "./components/condiciones";
 const rrfProps = {
   firebase,
   config: {
@@ -31,6 +32,9 @@ function App() {
   return (
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
+        <div className="condiciones">
+          <Condiciones />
+        </div>
         {!logged.logged && (
           <div>
             <UserLogged handleChange={handleChange} />

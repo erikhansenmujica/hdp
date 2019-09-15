@@ -1,12 +1,12 @@
-import React from "react"
-import s from "./loader.module.scss"
+import React from "react";
+import s from "./loader.module.scss";
 
 function randomSpinners() {
-  const arr = []
+  const arr = [];
   for (let i = 0; i < Math.ceil(Math.random() * 5); i++) {
-    arr.push(i + 1)
+    arr.push(i + 1);
   }
-  return arr
+  return arr;
 }
 
 export default () => (
@@ -18,8 +18,8 @@ export default () => (
         className={s.img}
       />
     </div>
-    {randomSpinners().map((spinner) => (
+    {randomSpinners().map(spinner => (
       <div key={spinner} className={s[`loader${spinner}`]} />
     ))}
   </div>
-)
+);
