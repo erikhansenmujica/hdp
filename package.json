@@ -3,15 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.4.2",
     "firebase": "^6.6.1",
+    "jquery": "^3.4.1",
+    "mdbootstrap": "^4.8.9",
+    "mdbreact": "^4.19.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-file-picker": "0.0.6",
+    "react-icons": "^3.7.0",
     "react-redux": "^7.1.1",
     "react-redux-firebase": "^3.0.0-beta.2",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
     "redux": "^4.0.4",
     "redux-firestore": "^0.9.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.22.12"
   },
   "scripts": {
     "start": "react-scripts start",

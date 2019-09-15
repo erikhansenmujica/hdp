@@ -10,12 +10,12 @@ const firebaseConfig = {
   authDomain: "hijodeputa-5f1a1.firebaseapp.com",
   databaseURL: "https://hijodeputa-5f1a1.firebaseio.com",
   projectId: "hijodeputa-5f1a1",
-  storageBucket: ""
+  storageBucket: "hijodeputa-5f1a1.appspot.com"
 };
 firebase.initializeApp(firebaseConfig);
-firebase.firestore();
-
+const db = firebase.firestore();
+const storage = firebase.storage();
 // Create store with reducers and initial state
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
-export default store;
+export { store, db, storage };

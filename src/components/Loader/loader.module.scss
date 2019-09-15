@@ -1,0 +1,62 @@
+@import "../../styles/colors.scss";
+
+$secs: 2;
+$dimentions: 50;
+
+@for $i from 1 through 5 {
+  .loader#{$i} {
+    top: 1;
+    left: 1;
+    position: absolute;
+    border: 16px solid $darkblue;
+    border-radius: 50%;
+    text-align: center;
+    width: $dimentions + $i * 35px;
+    height: $dimentions + $i * 35px;
+
+    @if $i%2==0 {
+      animation: spin 0.5s * $i + $secs linear infinite;
+      border-top: 16px solid $P5red;
+    } @else {
+      animation: kk 0.5s * $i + $secs linear infinite;
+      border-top: 16px solid grey;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.skere {
+  position: absolute;
+  top: 1;
+  left: 1;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes kk {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+.spinner {
+  width: 100%;
+  height: 100vh;
+  background-color: $darkblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img {
+  object-fit: cover;
+  height: 45px;
+  border-radius: 50%;
+}

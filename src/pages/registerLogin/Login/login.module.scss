@@ -1,0 +1,32 @@
+@import "../../../styles/colors.scss";
+
+.logInBox {
+  background-color: $lightgrey;
+  width: 30%;
+  margin: 25vh auto;
+  padding: 50px;
+  text-align: center;
+  border: 1px solid $P5red;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+.logInBox:hover {
+  -webkit-box-shadow: 1px 0px 34px 14px $lightblue;
+  -moz-box-shadow: 1px 0px 34px 14px $lightblue;
+  box-shadow: 1px 0px 34px 14px $lightblue;
+}
+.logInInput {
+  display: flex;
+  align-items: center;
+}
+.body {
+  background-color: $darkishblue;
+  overflow-y: hidden;
+  width: 100%;
+  height: 100vh;
+}
+.subtitle {
+  color: $darkishblue;
+  margin-top: 110px;
+  margin-bottom: -157px;
+}

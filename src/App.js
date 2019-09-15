@@ -1,12 +1,16 @@
-import React from "react";
-import "./App.css";
+import React, { useState } from "react";
+import "./App.scss";
 import Home from "./pages/home";
 import firebase from "firebase/app";
 import { Provider } from "react-redux";
 import { ReactReduxFirebaseProvider } from "react-redux-firebase";
-import store from "./store";
+import { store } from "./store";
 import { createFirestoreInstance } from "redux-firestore"; // <- needed if using firestore
-
+import Login from "./pages/registerLogin/Login";
+import { Route, BrowserRouter, Redirect } from "react-router-dom";
+import UserLogged from "./components/userLogged";
+import Loader from "./components/Loader";
+import ImageUploader from "./pages/imageUploader";
 const rrfProps = {
   firebase,
   config: {
@@ -18,10 +22,44 @@ const rrfProps = {
 };
 
 function App() {
+  const [logged, setLogged] = useState({
+    logged: false
+  });
+  const handleChange = (logged, user) =>
+    setLogged({ logged: logged, user: user });
+  console.log(logged.user);
   return (
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
-        <Home />;
+        {!logged.logged && (
+          <div>
+            <UserLogged handleChange={handleChange} />
+            <Loader />
+          </div>
+        )}
+        {logged.logged === "yes" && (
+          <BrowserRouter>
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/upload/image" component={ImageUploader} />
+            {!window.location.href.includes("/upload/image") ? (
+              !logged.user.photoURL ? (
+                <Redirect to="/upload/image" />
+              ) : (
+                <Redirect from="/" to="/home" />
+              )
+            ) : !logged.user.photoURL ? (
+              <Redirect to="/upload/image" />
+            ) : (
+              <Redirect from="/" to="/home" />
+            )}
+          </BrowserRouter>
+        )}
+        {logged.logged === "no" && (
+          <BrowserRouter>
+            <Route path="/" component={Login} />
+            <Redirect from="/" to="/" />
+          </BrowserRouter>
+        )}
       </ReactReduxFirebaseProvider>
     </Provider>
   );
