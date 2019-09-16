@@ -28,7 +28,6 @@ function App() {
   });
   const handleChange = (logged, user) =>
     setLogged({ logged: logged, user: user });
-  console.log(logged.user);
   return (
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>

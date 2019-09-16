@@ -15,7 +15,7 @@ class Login extends Component {
   handleChange = e => {
     const re = /^[a-z0-9]+$/i;
     if (e.target.value === "" || re.test(e.target.value))
-      this.setState({ [e.target.name]: e.target.value });
+      this.setState({ [e.target.name]: e.target.value + "" });
   };
   handleSubmit = e => {
     e.preventDefault();
@@ -23,7 +23,7 @@ class Login extends Component {
     firebase
       .auth()
       .signInWithEmailAndPassword(
-        this.state.username + "@gmail.com",
+        this.state.username.toLowerCase() + "@gmail.com",
         this.state.password
       )
       .catch(error => {
@@ -34,15 +34,15 @@ class Login extends Component {
             firebase
               .auth()
               .createUserWithEmailAndPassword(
-                this.state.username + "@gmail.com",
+                this.state.username.toLowerCase() + "@gmail.com",
                 this.state.password
               )
               .then(() => {
                 const collection = db.collection("users");
                 collection
-                  .doc(this.state.username)
+                  .doc(this.state.username.toLowerCase())
                   .set({
-                    name: this.state.username, // some another information for user you could save it here.
+                    name: this.state.username.toLowerCase(), // some another information for user you could save it here.
                     password: this.state.password, // some another information for user you could save it here.
                     votos: 0,
                     votosEnElMes: 0,

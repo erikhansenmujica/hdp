@@ -43,9 +43,7 @@ const Home = ({ users }) => {
       .split("")
       .splice(0, user.length - 1)
       .join("");
-    console.log(users, user);
     const userData = users.filter(user1 => user1.name === user)[0];
-    console.log(userData);
     db.collection("users")
       .doc(user)
       .update({
@@ -91,7 +89,6 @@ const Home = ({ users }) => {
       if (state.isSomeoneChecked)
         setState({ ...state, isSomeoneChecked: false });
     })();
-    console.log(state);
     return (
       <div className="App">
         {state.enviado ? (
