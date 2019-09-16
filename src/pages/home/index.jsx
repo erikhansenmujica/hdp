@@ -151,8 +151,8 @@ const Home = ({ users }) => {
                 <div className="OneRanking">
                   <h3 style={{ color: "white" }}> Ganador de esta semana </h3>
                   <Rankings
-                    users={users.sort((us1, us2) =>
-                      us1.votos > us2.votos ? 1 : -1
+                    users={JSON.parse(JSON.stringify(users)).sort((us1, us2) =>
+                      us1.votos > us2.votos ? -1 : 1
                     )}
                     tipoDeVoto="votos"
                   />
@@ -160,8 +160,8 @@ const Home = ({ users }) => {
                 <div className="OneRanking">
                   <h3 style={{ color: "white" }}> Ganador de este mes </h3>
                   <Rankings
-                    users={users.sort((us1, us2) =>
-                      us1.votosEnElMes > us2.votosEnElMes ? 1 : -1
+                    users={JSON.parse(JSON.stringify(users)).sort((us1, us2) =>
+                      us1.votosEnElMes > us2.votosEnElMes ? -1 : 1
                     )}
                     tipoDeVoto="votosEnElMes"
                   />
@@ -171,7 +171,7 @@ const Home = ({ users }) => {
                     El mas hijo de puta de la historia{" "}
                   </h3>
                   <Rankings
-                    users={users.sort((us1, us2) =>
+                    users={JSON.parse(JSON.stringify(users)).sort((us1, us2) =>
                       us1.votosEnLaHistoria > us2.votosEnLaHistoria ? -1 : 1
                     )}
                     tipoDeVoto="votosEnLaHistoria"
